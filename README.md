@@ -13,7 +13,7 @@ This program takes an rsID as input and outputs an interactive map showing the m
 
 These dependencies can be installed with [conda](https://docs.anaconda.com/anaconda/install/index.html) using the `binp29p_env.yml` environment file.
 
-```bash
+```shell
 conda env create -f binp29p_env.yml
 conda activate bindp29p
 ```
@@ -23,8 +23,8 @@ The program utilizes the ENSEMBL REST API to access minor allele frequencies (MA
 
 It is run like:
 
-```bash
-/path_to_file/plotMAFs_worldmap.py
+```shell
+python3 /path_to_file/plotMAFs_worldmap.py
 ```
 The output for rs16 is:
 
