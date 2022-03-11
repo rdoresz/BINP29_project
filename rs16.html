@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fc82a89563964211add453bf23679039 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    
+                    <style>
+                        .foliumpopup {
+                            margin: auto;
+                        }
+                       .foliumpopup table{
+                            margin: auto;
+                        }
+                        .foliumpopup tr{
+                            text-align: left;
+                        }
+                        .foliumpopup th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>$( function() {
+        $( ".maplegend" ).draggable({
+            start: function (event, ui) {
+                $(this).css({
+                    right: "auto",
+                    top: "auto",
+                    bottom: "auto"
+                });
+            }
+        });
+    });
+    </script>
+    <style type='text/css'>
+      .maplegend {
+        position: absolute;
+        z-index:9999;
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        padding: 10px;
+        font: 12px/14px Arial, Helvetica, sans-serif;
+        right: 10px;
+        bottom: 20px;
+      }
+      .maplegend .legend-title {
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+        }
+      .maplegend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 0px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        }
+      .maplegend .legend-scale ul li {
+        list-style: none;
+        margin-left: 0;
+        line-height: 16px;
+        margin-bottom: 2px;
+        }
+      .maplegend ul.legend-labels li span {
+        display: block;
+        float: left;
+        height: 14px;
+        width: 14px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 0px solid #ccc;
+        }
+      .maplegend .legend-source {
+        color: #777;
+        clear: both;
+        }
+      .maplegend a {
+        color: #777;
+        }
+    </style>
+    
+</head>
+<body>    
+    
+    <div id='maplegend SNP: rs16 Minor allele: T' class='maplegend'>
+        <div class='legend-title'>SNP: rs16 Minor allele: T</div>
+        <div class='legend-scale'>
+            <ul class='legend-labels'>
+                <li><span style='background:#1f77b4'></span>0.229411764705882</li>
+                <li><span style='background:#1f77b4'></span>0.28125</li>
+                <li><span style='background:#aec7e8'></span>0.367021276595745</li>
+                <li><span style='background:#ff7f0e'></span>0.378504672897196</li>
+                <li><span style='background:#ffbb78'></span>0.383838383838384</li>
+                <li><span style='background:#2ca02c'></span>0.393939393939394</li>
+                <li><span style='background:#98df8a'></span>0.403846153846154</li>
+                <li><span style='background:#98df8a'></span>0.408653846153846</li>
+                <li><span style='background:#d62728'></span>0.412621359223301</li>
+                <li><span style='background:#ff9896'></span>0.41588785046729</li>
+                <li><span style='background:#9467bd'></span>0.424418604651163</li>
+                <li><span style='background:#c5b0d5'></span>0.426229508196721</li>
+                <li><span style='background:#8c564b'></span>0.431372549019608</li>
+                <li><span style='background:#8c564b'></span>0.445054945054945</li>
+                <li><span style='background:#c49c94'></span>0.446236559139785</li>
+                <li><span style='background:#e377c2'></span>0.453703703703704</li>
+                <li><span style='background:#f7b6d2'></span>0.45959595959596</li>
+                <li><span style='background:#7f7f7f'></span>0.466666666666667</li>
+                <li><span style='background:#c7c7c7'></span>0.482352941176471</li>
+                <li><span style='background:#c7c7c7'></span>0.489583333333333</li>
+                <li><span style='background:#bcbd22'></span>0.5</li>
+                <li><span style='background:#dbdb8d'></span>0.509803921568627</li>
+                <li><span style='background:#17becf'></span>0.515151515151515</li>
+                <li><span style='background:#9edae5'></span>0.517699115044248</li>
+                <li><span style='background:#9edae5'></span>0.601941747572815</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_fc82a89563964211add453bf23679039" ></div>
+        
+</body>
+<script>    
+    
+            var map_fc82a89563964211add453bf23679039 = L.map(
+                "map_fc82a89563964211add453bf23679039",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d1797036c43c4d4aaa66e848b38305b8 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_fc82a89563964211add453bf23679039);
+        
+    
+        function geo_json_c94eb035b2e44106b539d8bd42029d72_styler(feature) {
+            switch(feature.id) {
+                case "0": case "18": 
+                    return {"color": "#c7c7c7", "fillColor": "#c7c7c7", "fillOpacity": 0.5, "weight": 2};
+                case "1": 
+                    return {"color": "#c5b0d5", "fillColor": "#c5b0d5", "fillOpacity": 0.5, "weight": 2};
+                case "2": 
+                    return {"color": "#9467bd", "fillColor": "#9467bd", "fillOpacity": 0.5, "weight": 2};
+                case "3": 
+                    return {"color": "#c49c94", "fillColor": "#c49c94", "fillOpacity": 0.5, "weight": 2};
+                case "4": 
+                    return {"color": "#2ca02c", "fillColor": "#2ca02c", "fillOpacity": 0.5, "weight": 2};
+                case "5": case "12": 
+                    return {"color": "#9edae5", "fillColor": "#9edae5", "fillOpacity": 0.5, "weight": 2};
+                case "6": 
+                    return {"color": "#7f7f7f", "fillColor": "#7f7f7f", "fillOpacity": 0.5, "weight": 2};
+                case "7": 
+                    return {"color": "#aec7e8", "fillColor": "#aec7e8", "fillOpacity": 0.5, "weight": 2};
+                case "9": 
+                    return {"color": "#17becf", "fillColor": "#17becf", "fillOpacity": 0.5, "weight": 2};
+                case "10": case "23": 
+                    return {"color": "#8c564b", "fillColor": "#8c564b", "fillOpacity": 0.5, "weight": 2};
+                case "11": 
+                    return {"color": "#d62728", "fillColor": "#d62728", "fillOpacity": 0.5, "weight": 2};
+                case "13": 
+                    return {"color": "#ff7f0e", "fillColor": "#ff7f0e", "fillOpacity": 0.5, "weight": 2};
+                case "14": 
+                    return {"color": "#dbdb8d", "fillColor": "#dbdb8d", "fillOpacity": 0.5, "weight": 2};
+                case "15": case "22": 
+                    return {"color": "#98df8a", "fillColor": "#98df8a", "fillOpacity": 0.5, "weight": 2};
+                case "16": 
+                    return {"color": "#ffbb78", "fillColor": "#ffbb78", "fillOpacity": 0.5, "weight": 2};
+                case "19": case "20": 
+                    return {"color": "#1f77b4", "fillColor": "#1f77b4", "fillOpacity": 0.5, "weight": 2};
+                case "21": 
+                    return {"color": "#bcbd22", "fillColor": "#bcbd22", "fillOpacity": 0.5, "weight": 2};
+                case "24": 
+                    return {"color": "#ff9896", "fillColor": "#ff9896", "fillOpacity": 0.5, "weight": 2};
+                case "25": 
+                    return {"color": "#e377c2", "fillColor": "#e377c2", "fillOpacity": 0.5, "weight": 2};
+                default:
+                    return {"color": "#f7b6d2", "fillColor": "#f7b6d2", "fillOpacity": 0.5, "weight": 2};
+            }
+        }
+        function geo_json_c94eb035b2e44106b539d8bd42029d72_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 0.75};
+            }
+        }
+        function geo_json_c94eb035b2e44106b539d8bd42029d72_pointToLayer(feature, latlng) {
+            var opts = {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3};
+            
+            let style = geo_json_c94eb035b2e44106b539d8bd42029d72_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_c94eb035b2e44106b539d8bd42029d72_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        geo_json_c94eb035b2e44106b539d8bd42029d72.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_c94eb035b2e44106b539d8bd42029d72_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_c94eb035b2e44106b539d8bd42029d72 = L.geoJson(null, {
+                onEachFeature: geo_json_c94eb035b2e44106b539d8bd42029d72_onEachFeature,
+            
+                style: geo_json_c94eb035b2e44106b539d8bd42029d72_styler,
+                pointToLayer: geo_json_c94eb035b2e44106b539d8bd42029d72_pointToLayer
+        });
+
+        function geo_json_c94eb035b2e44106b539d8bd42029d72_add (data) {
+            geo_json_c94eb035b2e44106b539d8bd42029d72
+                .addData(data)
+                .addTo(map_fc82a89563964211add453bf23679039);
+        }
+            geo_json_c94eb035b2e44106b539d8bd42029d72_add({"bbox": [-118.2439, -12.04, 139.68, 60.17], "features": [{"bbox": [-59.62, 13.1, -59.62, 13.1], "geometry": {"coordinates": [-59.62, 13.1], "type": "Point"}, "id": "0", "properties": {"__folium_color": "#c7c7c7", "allele": "T", "allele_count": 94, "frequency": 0.489583333333333, "population ID": "ACB", "population info": "African Caribbean in Barbados", "population name": "African Caribbean"}, "type": "Feature"}, {"bbox": [-97.53333, 35.483, -97.53333, 35.483], "geometry": {"coordinates": [-97.53333, 35.483], "type": "Point"}, "id": "1", "properties": {"__folium_color": "#c5b0d5", "allele": "T", "allele_count": 52, "frequency": 0.426229508196721, "population ID": "ASW", "population info": "African Ancestry in Southwest US", "population name": "African Ancestry SW"}, "type": "Feature"}, {"bbox": [90.35, 23.7, 90.35, 23.7], "geometry": {"coordinates": [90.35, 23.7], "type": "Point"}, "id": "2", "properties": {"__folium_color": "#9467bd", "allele": "T", "allele_count": 73, "frequency": 0.424418604651163, "population ID": "BEB", "population info": "Bengali in Bangladesh", "population name": "Bengali"}, "type": "Feature"}, {"bbox": [100.78, 22.0, 100.78, 22.0], "geometry": {"coordinates": [100.78, 22.0], "type": "Point"}, "id": "3", "properties": {"__folium_color": "#c49c94", "allele": "T", "allele_count": 83, "frequency": 0.446236559139785, "population ID": "CDX", "population info": "Chinese Dai in Xishuangbanna, China", "population name": "Dai Chinese"}, "type": "Feature"}, {"bbox": [-111.8904, 40.767, -111.8904, 40.767], "geometry": {"coordinates": [-111.8904, 40.767], "type": "Point"}, "id": "4", "properties": {"__folium_color": "#2ca02c", "allele": "T", "allele_count": 78, "frequency": 0.393939393939394, "population ID": "CEU", "population info": "Utah residents (CEPH) with Northern and Western European ancestry", "population name": "CEPH"}, "type": "Feature"}, {"bbox": [116.383333, 39.916666, 116.383333, 39.916666], "geometry": {"coordinates": [116.383333, 39.916666], "type": "Point"}, "id": "5", "properties": {"__folium_color": "#9edae5", "allele": "T", "allele_count": 124, "frequency": 0.601941747572815, "population ID": "CHB", "population info": "Han Chinese in Beijing, China", "population name": "Han Chinese"}, "type": "Feature"}, {"bbox": [113.266667, 23.13333, 113.266667, 23.13333], "geometry": {"coordinates": [113.266667, 23.13333], "type": "Point"}, "id": "6", "properties": {"__folium_color": "#7f7f7f", "allele": "T", "allele_count": 98, "frequency": 0.466666666666667, "population ID": "CHS", "population info": "Han Chinese South", "population name": "Southern Han Chinese"}, "type": "Feature"}, {"bbox": [-74.066666, 4.58333, -74.066666, 4.58333], "geometry": {"coordinates": [-74.066666, 4.58333], "type": "Point"}, "id": "7", "properties": {"__folium_color": "#aec7e8", "allele": "T", "allele_count": 69, "frequency": 0.367021276595745, "population ID": "CLM", "population info": "Colombian in Medellin, Colombia", "population name": "Colombian"}, "type": "Feature"}, {"bbox": [7.483333, 9.06666, 7.483333, 9.06666], "geometry": {"coordinates": [7.483333, 9.06666], "type": "Point"}, "id": "8", "properties": {"__folium_color": "#f7b6d2", "allele": "T", "allele_count": 91, "frequency": 0.45959595959596, "population ID": "ESN", "population info": "Esan in Nigeria", "population name": "Esan"}, "type": "Feature"}, {"bbox": [24.93, 60.17, 24.93, 60.17], "geometry": {"coordinates": [24.93, 60.17], "type": "Point"}, "id": "9", "properties": {"__folium_color": "#17becf", "allele": "T", "allele_count": 102, "frequency": 0.515151515151515, "population ID": "FIN", "population info": "Finnish in Finland", "population name": "Finnish"}, "type": "Feature"}, {"bbox": [-1.890401, 52.486243, -1.890401, 52.486243], "geometry": {"coordinates": [-1.890401, 52.486243], "type": "Point"}, "id": "10", "properties": {"__folium_color": "#8c564b", "allele": "T", "allele_count": 81, "frequency": 0.445054945054945, "population ID": "GBR", "population info": "British in England and Scotland", "population name": "British"}, "type": "Feature"}, {"bbox": [-95.3677, 29.7589, -95.3677, 29.7589], "geometry": {"coordinates": [-95.3677, 29.7589], "type": "Point"}, "id": "11", "properties": {"__folium_color": "#d62728", "allele": "T", "allele_count": 85, "frequency": 0.412621359223301, "population ID": "GIH", "population info": "Gujarati Indians in Houston, TX", "population name": "Gujarati"}, "type": "Feature"}, {"bbox": [-16.579032, 13.454876, -16.579032, 13.454876], "geometry": {"coordinates": [-16.579032, 13.454876], "type": "Point"}, "id": "12", "properties": {"__folium_color": "#9edae5", "allele": "T", "allele_count": 117, "frequency": 0.517699115044248, "population ID": "GWD", "population info": "Gambian in Western Division, The Gambia - Mandinka", "population name": "Gambian Mandinka"}, "type": "Feature"}, {"bbox": [-3.72, 40.38, -3.72, 40.38], "geometry": {"coordinates": [-3.72, 40.38], "type": "Point"}, "id": "13", "properties": {"__folium_color": "#ff7f0e", "allele": "T", "allele_count": 81, "frequency": 0.378504672897196, "population ID": "IBS", "population info": "Iberian populations in Spain", "population name": "Iberian"}, "type": "Feature"}, {"bbox": [-1.890401, 52.486243, -1.890401, 52.486243], "geometry": {"coordinates": [-1.890401, 52.486243], "type": "Point"}, "id": "14", "properties": {"__folium_color": "#dbdb8d", "allele": "T", "allele_count": 104, "frequency": 0.509803921568627, "population ID": "ITU", "population info": "Indian Telugu in the UK", "population name": "Telugu"}, "type": "Feature"}, {"bbox": [139.68, 35.68, 139.68, 35.68], "geometry": {"coordinates": [139.68, 35.68], "type": "Point"}, "id": "15", "properties": {"__folium_color": "#98df8a", "allele": "T", "allele_count": 84, "frequency": 0.403846153846154, "population ID": "JPT", "population info": "Japanese in Tokyo, Japan", "population name": "Japanese"}, "type": "Feature"}, {"bbox": [106.68, 10.78, 106.68, 10.78], "geometry": {"coordinates": [106.68, 10.78], "type": "Point"}, "id": "16", "properties": {"__folium_color": "#ffbb78", "allele": "T", "allele_count": 76, "frequency": 0.383838383838384, "population ID": "KHV", "population info": "Kinh in Ho Chi Minh City, Vietnam", "population name": "Kinh Vietnamese"}, "type": "Feature"}, {"bbox": [36.61, -1.27, 36.61, -1.27], "geometry": {"coordinates": [36.61, -1.27], "type": "Point"}, "id": "17", "properties": {"__folium_color": "#f7b6d2", "allele": "T", "allele_count": 91, "frequency": 0.45959595959596, "population ID": "LWK", "population info": "Luhya in Webuye, Kenya", "population name": "Luhya"}, "type": "Feature"}, {"bbox": [-13.23, 8.48, -13.23, 8.48], "geometry": {"coordinates": [-13.23, 8.48], "type": "Point"}, "id": "18", "properties": {"__folium_color": "#c7c7c7", "allele": "T", "allele_count": 82, "frequency": 0.482352941176471, "population ID": "MSL", "population info": "Mende in Sierra Leone", "population name": "Mende"}, "type": "Feature"}, {"bbox": [-118.2439, 34.0544, -118.2439, 34.0544], "geometry": {"coordinates": [-118.2439, 34.0544], "type": "Point"}, "id": "19", "properties": {"__folium_color": "#1f77b4", "allele": "T", "allele_count": 36, "frequency": 0.28125, "population ID": "MXL", "population info": "Mexican Ancestry in Los Angeles, California", "population name": "Mexican Ancestry"}, "type": "Feature"}, {"bbox": [-77.03, -12.04, -77.03, -12.04], "geometry": {"coordinates": [-77.03, -12.04], "type": "Point"}, "id": "20", "properties": {"__folium_color": "#1f77b4", "allele": "T", "allele_count": 39, "frequency": 0.229411764705882, "population ID": "PEL", "population info": "Peruvian in Lima, Peru", "population name": "Peruvian"}, "type": "Feature"}, {"bbox": [74.357158, 31.554606, 74.357158, 31.554606], "geometry": {"coordinates": [74.357158, 31.554606], "type": "Point"}, "id": "21", "properties": {"__folium_color": "#bcbd22", "allele": "T", "allele_count": 96, "frequency": 0.5, "population ID": "PJL", "population info": "Punjabi in Lahore, Pakistan", "population name": "Punjabi"}, "type": "Feature"}, {"bbox": [-66.1, 18.4, -66.1, 18.4], "geometry": {"coordinates": [-66.1, 18.4], "type": "Point"}, "id": "22", "properties": {"__folium_color": "#98df8a", "allele": "T", "allele_count": 85, "frequency": 0.408653846153846, "population ID": "PUR", "population info": "Puerto Rican in Puerto Rico", "population name": "Puerto Rican"}, "type": "Feature"}, {"bbox": [-1.890401, 52.486243, -1.890401, 52.486243], "geometry": {"coordinates": [-1.890401, 52.486243], "type": "Point"}, "id": "23", "properties": {"__folium_color": "#8c564b", "allele": "T", "allele_count": 88, "frequency": 0.431372549019608, "population ID": "STU", "population info": "Sri Lankan Tamil in the UK", "population name": "Tamil"}, "type": "Feature"}, {"bbox": [12.0, 42.1, 12.0, 42.1], "geometry": {"coordinates": [12.0, 42.1], "type": "Point"}, "id": "24", "properties": {"__folium_color": "#ff9896", "allele": "T", "allele_count": 89, "frequency": 0.41588785046729, "population ID": "TSI", "population info": "Toscani in Italy", "population name": "Toscani"}, "type": "Feature"}, {"bbox": [3.92, 7.4, 3.92, 7.4], "geometry": {"coordinates": [3.92, 7.4], "type": "Point"}, "id": "25", "properties": {"__folium_color": "#e377c2", "allele": "T", "allele_count": 98, "frequency": 0.453703703703704, "population ID": "YRI", "population info": "Yoruba in Ibadan, Nigeria", "population name": "Yoruba"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_c94eb035b2e44106b539d8bd42029d72.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["frequency"];
+    let aliases = ["frequency"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumtooltip", "sticky": true});
+                     
+    
+    geo_json_c94eb035b2e44106b539d8bd42029d72.bindPopup(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["frequency", "allele", "allele_count", "population ID", "population name", "population info"];
+    let aliases = ["frequency", "allele", "allele_count", "population ID", "population name", "population info"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumpopup"});
+                     
+    
+            var tile_layer_0a02456a1e694f4b90d6a2a45f7f4b9b = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_fc82a89563964211add453bf23679039);
+        
+    
+            var layer_control_2c406fa03bd04de5929595ce956d4710 = {
+                base_layers : {
+                },
+                overlays :  {
+                },
+            };
+            L.control.layers(
+                layer_control_2c406fa03bd04de5929595ce956d4710.base_layers,
+                layer_control_2c406fa03bd04de5929595ce956d4710.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(tile_layer_0a02456a1e694f4b90d6a2a45f7f4b9b);
+        
+</script>
