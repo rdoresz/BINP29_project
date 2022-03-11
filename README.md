@@ -8,9 +8,6 @@ This program takes an rsID as input and outputs an interactive map showing the m
 Through the ENSEMBL REST API, only the population IDs were accessed therefore further information about the populations was downloaded from https://www.internationalgenome.org/data-portal/population and the downloaded tsv file is part of this Git Repo.
 The getting_pop_ids.py script was run to parse the file and output the data needed to run plotMAFs_worldmap.py.
 
-```shell
-/path_to_file/getting_pop_ids.py igsr_populations.tsv
-```
 From the standard output, the data was copied and pasted into the plotMAFs_worldmap.py.
 
 ## Running the program plotMAFs_worldmap.py
@@ -23,10 +20,11 @@ It is run like:
 Please type in the rsID rs16
 ```
 The output for rs16 is:
+
 ![image](https://user-images.githubusercontent.com/68820705/157863961-43670d84-9308-4afc-9477-2c08b0a03a8f.png)
 
 
-## Versions of dependencies
+## Dependencies
 - python 3.9
 - requests 2.27.1
 - pandas 1.4.1
