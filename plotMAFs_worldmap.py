@@ -6,10 +6,11 @@ Date: 2022-03-10
 Author(s): Dorottya Ralbovszki
 
 Description:
-  This program takes an rsID as input and outputs an interactive map showing the minor allele freqeuncies (MAFs) in the populations from the 1000 Genome Project phase 3 datase.
-  The data is accesed from the ensbl data base via their REST API and the documentation and code of that is found on https://rest.ensembl.org/documentation/info/variation_id.
-  When hovering over a population point, the MAF of that population will show and when clicking on it, more information will pop up (allele count, minor allele, MAF, population ID, population name).
+  This program takes an rsID as input and outputs an interactive map showing the minor allele freqeuncies (MAFs) in the populations from the 1000 Genome Project phase 3 data set.
+  The data is accesed from the ENSEMBL data base via their REST API. The documentation and code of that is found on https://rest.ensembl.org/documentation/info/variation_id.
+  When hovering over a population point, the MAF of that population will show and when clicking on it, more information will pop up (allele count, minor allele, MAF, population ID, population name, population info).
   In the legend's header the user is informed about the input rsID and its minor allele followed by the MAFs for each population and their colour code on the map.
+
 List of functions:
     make_geodf was soursed from https://www.martinalarcon.org/2018-12-31-d-geopandas/ and was modified in this script.
 
