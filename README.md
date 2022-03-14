@@ -31,8 +31,8 @@ The output for rs16 is:
 ![image](https://user-images.githubusercontent.com/68820705/157863961-43670d84-9308-4afc-9477-2c08b0a03a8f.png)
 
 ## Obtaining data about the populations
-Through the ENSEMBL REST API, only the population IDs were accessed therefore further information about the populations was downloaded from https://www.internationalgenome.org/data-portal/population and the downloaded tsv file is part of this Git Repo.
-The getting_pop_ids.py script was run to parse the file and output the data needed to run plotMAFs_worldmap.py.
+Through the ENSEMBL REST API, only the population IDs were accessed therefore further information about the populations was downloaded from https://www.internationalgenome.org/data-portal/population and the downloaded tsv file is part of this Git Repo for reproducibility purposes.
+The getting_pop_ids.py script was run to parse the tsv file and output the data that was used in plotMAFs_worldmap.py.
 
 ## Author(s)
 Dorottya Ralbovszki
