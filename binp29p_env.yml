@@ -1,0 +1,10 @@
+name: binp29p
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - requests=2.27.1
+  - pandas=1.4.1
+  - geopandas=0.10.2
+  - folium=0.12.1.post1
