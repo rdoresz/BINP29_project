@@ -2,7 +2,7 @@
 One week project during the BINP29 course (Lund University)
 
 ## Description
-This program takes an rsID as input and outputs an interactive map showing the minor allele freqeuncies (MAFs) in the populations from the 1000 Genome Project phase 3 data set. The data is accesed from the ENSEMBL data base via their REST API. The documentation and code of that is found on https://rest.ensembl.org/documentation/info/variation_id. When hovering over a population point, the MAF of that population will show and when clicking on it, more information will pop up (allele count, minor allele, MAF, population ID, population name, population info). In the legend's header the user is informed about the input rsID and its minor allele followed by the MAFs for each population and their colour code on the map.
+This program takes an rsID as input and outputs an interactive map showing the minor allele freqeuncies (MAFs) in the populations from the 1000 Genome Project phase 3 data set. The data is accesed from the ENSEMBL data base via their REST API. The documentation and code of that is found on https://rest.ensembl.org/documentation/info/variation_id.
 
 ## Dependencies
 - python 3.9
@@ -19,7 +19,7 @@ conda activate bindp29p
 ```
 
 ## Running the program plotMAFs_worldmap.py
-The program utilizes the ENSEMBL REST API to access minor allele frequencies (MAFs) and outputs an html file which contains an interactive world map with the MAFs of each population in the 1000 Genome Project phase 3.
+The program utilizes the ENSEMBL REST API to access minor allele frequencies (MAFs) and outputs an html file which contains an interactive world map with the MAFs of each population in the 1000 Genome Project phase 3. When hovering over a population point, the MAF of that population will show and when clicking on it, more information will pop up (allele count, minor allele, MAF, population ID, population name, population info). In the legend's header the user is informed about the input rsID and its minor allele followed by the MAFs for each population and their colour code on the map.
 
 It is run like:
 
