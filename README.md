@@ -37,10 +37,10 @@ Through the ENSEMBL REST API, only the population IDs were accessed therefore fu
 The getting_pop_ids.py script was run to parse the tsv file and output the data that was used in plotMAFs_worldmap.py. Three populations (Tamil, Telugu and British) were all sampled in Birmingham and as a result have the exact same coordinates. To address this overlap issue, coordinates of two populations were sightly changed so they can be visible but only after zooming in to the area.
 
 ## References
-Genomes Project, C., Auton, A., Brooks, L. D., Durbin, R. M., Garrison, E. P., Kang, H. M., . . . Abecasis, G. R. (2015). A global reference for human genetic variation. Nature, 526(7571), 68-74. doi:10.1038/nature15393
-Marcus, J. H., & Novembre, J. (2016). Visualizing the geography of genetic variants. Bioinformatics, 33(4), 594-595. doi:10.1093/bioinformatics/btw643
-Yates, A., Beal, K., Keenan, S., McLaren, W., Pignatelli, M., Ritchie, G. R. S., . . . Flicek, P. (2015). The Ensembl REST API: Ensembl Data for Any Language. Bioinformatics (Oxford, England), 31(1), 143-145. doi:10.1093/bioinformatics/btu613
-Zerbino, D. R., Achuthan, P., Akanni, W., Amode, M R., Barrell, D., Bhai, J., . . . Flicek, P. (2017). Ensembl 2018. Nucleic Acids Research, 46(D1), D754-D761. doi:10.1093/nar/gkx1098
+- Genomes Project, C., Auton, A., Brooks, L. D., Durbin, R. M., Garrison, E. P., Kang, H. M., . . . Abecasis, G. R. (2015). A global reference for human genetic variation. Nature, 526(7571), 68-74. doi:10.1038/nature15393
+- Marcus, J. H., & Novembre, J. (2016). Visualizing the geography of genetic variants. Bioinformatics, 33(4), 594-595. doi:10.1093/bioinformatics/btw643
+- Yates, A., Beal, K., Keenan, S., McLaren, W., Pignatelli, M., Ritchie, G. R. S., . . . Flicek, P. (2015). The Ensembl REST API: Ensembl Data for Any Language. Bioinformatics (Oxford, England), 31(1), 143-145. doi:10.1093/bioinformatics/btu613
+- Zerbino, D. R., Achuthan, P., Akanni, W., Amode, M R., Barrell, D., Bhai, J., . . . Flicek, P. (2017). Ensembl 2018. Nucleic Acids Research, 46(D1), D754-D761. doi:10.1093/nar/gkx1098
 
 ## Author(s)
 Dorottya Ralbovszki
