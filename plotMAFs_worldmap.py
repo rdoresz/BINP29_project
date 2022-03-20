@@ -29,9 +29,10 @@ Procedure:
     7. In the major_allele merged data frame (df5) the major alleles are changed to the minor allele, their frequency is set to 0 from 1 and their count is set to 0.
     8. The two data frames are merged and the column population is dropped because it is duplicate of ID column.
     9. Using the make_geodf function, a dataframe with geopoints is created using the coordinates information.
-    10. A base map is created using the module folium.
-    11. Utilizing the geopoints and the base map, an interactive map is plotted.
-    12. The map is saved into an html file.
+    10. Adding more information (minor allele and rsID) to the data frame to be shown on the popup on the map.
+    11. A base map is created using the module folium.
+    12. Utilizing the geopoints and the base map, an interactive map is plotted.
+    13. The map is saved into an html file.
 
 Usage:
     ./plotMAFs_worldmap.py
@@ -98,6 +99,11 @@ d2 = pd.DataFrame(mydict)
 # swap the columns with indexes
 d2 = d2.transpose()
 
+for i in d2['frequency']:
+    y = str(round(i, 2))
+    d2['frequency'] = d2['frequency'].replace([i],y)
+
+
 
 '''
 4.
@@ -122,8 +128,9 @@ df_major = df_major[df_major ['frequency'] == 1] # keeping rows with frequency o
 elasticid = ['CHS', 'FIN', 'PUR', 'KHV', 'ACB', 'BEB', 'ASW', 'YRI', 'LWK', 'JPT', 'CEU', 'CHB', 'CDX', 'GIH', 'GWD', 'MSL', 'ESN', 'PJL', 'IBS', 'CLM', 'PEL', 'TSI', 'MXL', 'STU', 'ITU', 'GBR']
 popname = ['Southern Han Chinese', 'Finnish', 'Puerto Rican', 'Kinh Vietnamese', 'African Caribbean', 'Bengali', 'African Ancestry SW', 'Yoruba', 'Luhya', 'Japanese', 'CEPH', 'Han Chinese', 'Dai Chinese', 'Gujarati', 'Gambian Mandinka', 'Mende', 'Esan', 'Punjabi', 'Iberian', 'Colombian', 'Peruvian', 'Toscani', 'Mexican Ancestry', 'Tamil', 'Telugu', 'British']
 popinfo = ['Han Chinese South', 'Finnish in Finland', 'Puerto Rican in Puerto Rico', 'Kinh in Ho Chi Minh City, Vietnam', 'African Caribbean in Barbados', 'Bengali in Bangladesh', 'African Ancestry in Southwest US', 'Yoruba in Ibadan, Nigeria', 'Luhya in Webuye, Kenya', 'Japanese in Tokyo, Japan', 'Utah residents (CEPH) with Northern and Western European ancestry', 'Han Chinese in Beijing, China', 'Chinese Dai in Xishuangbanna, China', 'Gujarati Indians in Houston, TX', 'Gambian in Western Division, The Gambia - Mandinka', 'Mende in Sierra Leone', 'Esan in Nigeria', 'Punjabi in Lahore, Pakistan', 'Iberian populations in Spain', 'Colombian in Medellin, Colombia', 'Peruvian in Lima, Peru', 'Toscani in Italy', 'Mexican Ancestry in Los Angeles, California', 'Sri Lankan Tamil in the UK', 'Indian Telugu in the UK', 'British in England and Scotland']
-latitude = ['23.133330', '60.170000', '18.400000', '10.780000', '13.100000', '23.700000', '35.483000', '7.400000', '-1.270000', '35.680000', '40.767000', '39.916666', '22.000000', '29.758900', '13.454876', '8.480000', '9.066660', '31.554606', '40.380000', '4.583330', '-12.040000', '42.100000', '34.054400', '52.486243', '52.486243', '52.486243']
-longitude = ['113.266667', '24.930000', '-66.100000', '106.680000', '-59.620000', '90.350000', '-97.533330', '3.920000', '36.610000', '139.680000', '-111.890400', '116.383333', '100.780000', '-95.367700', '-16.579032', '-13.230000', '7.483333', '74.357158', '-3.720000', '-74.066666', '-77.030000', '12.000000', '-118.243900', '-1.890401', '-1.890401', '-1.890401']
+latitude = ['23.133330', '60.170000', '18.400000', '10.780000', '13.100000', '23.700000', '35.483000', '7.400000', '-1.270000', '35.680000', '40.767000', '39.916666', '22.000000', '29.758900', '13.454876', '8.480000', '9.066660', '31.554606', '40.380000', '4.583330', '-12.040000', '42.100000', '34.054400', '52.489814', '52.486156', '52.486243']
+longitude = ['113.266667', '24.930000', '-66.100000', '106.680000', '-59.620000', '90.350000', '-97.533330', '3.920000', '36.610000', '139.680000', '-111.890400', '116.383333', '100.780000', '-95.367700', '-16.579032', '-13.230000', '7.483333', '74.357158', '-3.720000', '-74.066666', '-77.030000', '12.000000', '-118.243900', '-1.903184', '-1.876920', '-1.890401']
+
 
 # creating a dictionary from the lists
 idsdict = {
@@ -189,6 +196,7 @@ def make_geodf(df, lat_col_name='latitude', lon_col_name='longitude'):
 # calling the function to create the GeoDataFrame
 geo_df = make_geodf(df_all)
 
+
 # removing the population column because it contains redundant information
 geo_df = geo_df.drop(labels='latitude', axis=1)
 
@@ -200,11 +208,31 @@ geo_df = geo_df.drop(labels='longitude', axis=1)
 10.
 '''
 
-m = folium.Map(tiles='Stamen Toner') # a base map is created using folium
+# adding new information to the data frame
+i = len(geo_df.index) # checking the number or rows and saving the value
+
+snp = [] # setting up empty list for rsID
+
+# filling up the lists in a loop
+for s in range(i): # making sure the lists are the same length as the number of rows in the data frame
+    snp.append(rsid) # filling up the list with the rsID
+
+
+# adding the lists as columns to the data frame    
+geo_df['rsID'] = snp
+
 
 
 '''
 11.
+'''
+
+
+m = folium.Map(tiles='Stamen Toner') # a base map is created using folium
+
+
+'''
+12.
 '''
 
 # on top of the base map, the locations of populations is plotted as an interactive map
@@ -215,7 +243,8 @@ geo_df.explore(
      tooltip="frequency", # show "frequency" column in the tooltip
      tooltip_kwds=dict(labels=False), # do not show column label in the tooltip
      popup=True, # turning on the popup function
-     legend_kwds= dict(caption= 'SNP: {} Minor allele: {}'.format(rsid, minorallele)), # adding a title to legend box showing the rsid of the query and its minor allele
+     legend=False,
+     #legend_kwds= dict(caption= 'SNP: {} Minor allele: {}'.format(rsid, minorallele)), # adding a title to legend box showing the rsid of the query and its minor allele
      name="populations" # name of the layer in the map
 )
 
@@ -224,10 +253,9 @@ m = folium.LayerControl().add_to(m)  # adding layer control using folium
 
 
 '''
-12.
+13.
 '''
 
 m.save('{}.html'.format(rsid)) # the plot is saved in an html file
 
-
-
+print('Please be aware that there are 3 populations in the UK all sampled in Birmingham that are only visible after zooming in, thank you!')
